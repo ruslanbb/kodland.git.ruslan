@@ -1,0 +1,47 @@
+import discord
+from discord.ext import commands
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix='/', intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f'We have logged in as {bot.user}')
+
+@bot.event
+async def help(ctx):
+    await ctx.send('')
+
+@bot.command()
+async def text1(ctx):
+     await ctx.send('Охра́на окружа́ющей среды́ или охра́на приро́ды, защита приро́ды — комплекс мер, предназначенных для ограничения отрицательного влияния деятельности человека на окружающую среду природу. Такими мерами могут являться: Ограничение выбросов в атмосферу и гидросферу с целью улучшения общей экологической обстановки. Создание заповедников, национальных парков с целью сохранения природных комплексов. Ограничение ловли рыбы, охоты с целью сохранения определённых видов. Ограничение выброса мусора.')
+
+@bot.command()
+async def picture1(ctx):
+    with open('images/picture.jpg', 'rb') as image:
+        picture = discord.File(image)
+    await ctx.send(file=picture)
+
+@bot.command()
+async def text2(ctx):
+    await ctx.send('Изменение климата начинает сильно влиять на нашу планету. В связи с глобальным потеплением, наблюдается уменьшение снегопадов и поднимается уровень моря. Людям в случае без действия придется измениться, чтобы сосуществовать с выросшей температурой')
+
+@bot.command()
+async def picture2(ctx):
+    with open('images/picture1.jpg', 'rb') as image:
+        picture = discord.File(image)
+    await ctx.send(file=picture)
+
+@bot.command()
+async def text3(ctx):
+    await ctx.send('Сплошные концентрированные рубки, пожары, болезни, ветровал, загрязнение окружающей среды и индивидуальный отбор, очень широко применяемый в селекции, приводят к тому, что сокращается эффективная численность особей в популяциях древесных растений. А за этим следует постоянное снижение генетического разнообразия лесов. Это опасно тем, что новые поколения леса, появившиеся от численно ограниченной группы, будут менее разнообразны с точки зрения генетики, а значит, снизится их продуктивность и устойчивость к неблагоприятным условиям.')
+
+@bot.command()
+async def picture3(ctx):
+    with open('images/picture2.jpg', 'rb') as image:
+        picture = discord.File(image)
+    await ctx.send(file=picture)
+
+bot.run('')
